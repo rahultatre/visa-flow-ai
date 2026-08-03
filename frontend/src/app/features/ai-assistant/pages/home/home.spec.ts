@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Home } from './home';
+import { AiAssistantHomeComponent } from './home';
 
-describe('Home', () => {
-  let component: Home;
-  let fixture: ComponentFixture<Home>;
+describe('AiAssistantHomeComponent', () => {
+  let component: AiAssistantHomeComponent;
+  let fixture: ComponentFixture<AiAssistantHomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Home],
+      imports: [AiAssistantHomeComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Home);
+    fixture = TestBed.createComponent(AiAssistantHomeComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
