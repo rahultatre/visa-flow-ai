@@ -1,26 +1,37 @@
 <main class="home-page">
   <mat-card class="form-assistant" appearance="outlined" aria-labelledby="page-title">
     <header class="page-header">
-      <p class="eyebrow">Enterprise AI</p>
-      <h1 id="page-title">Form Assistant</h1>
+      <!-- <p class="eyebrow">Enterprise AI</p> -->
+      <h1 id="page-title">Create New Visa Workflow</h1>
     </header>
 
     <mat-divider></mat-divider>
 
-    <section class="prompt-section" aria-labelledby="prompt-heading">
-      <h2 id="prompt-heading">Describe your form</h2>
+    <section class="prompt-section" aria-labelledby="prompt-heading" [formGroup]="promptForm">
+      <!-- <h2 id="prompt-heading">Describe your form</h2> -->
+       <h2 id="prompt-heading">Describe your business requirement</h2>
       <mat-form-field appearance="outline">
-        <mat-label>Form description</mat-label>
-        <textarea matInput placeholder="Create an H1B beneficiary form..." rows="5"></textarea>
+        <mat-label>Business requirement</mat-label>
+        <textarea matInput formControlName="businessRequirement" placeholder="Describe the business requirement..." rows="5"></textarea>
       </mat-form-field>
-      <button mat-flat-button type="button">Generate</button>
+      <button mat-raised-button color="primary" [disabled]="isLoading()" (click)="generate()">
+        @if (isLoading()) {
+        <mat-spinner diameter="20"></mat-spinner>
+        } @else {
+        Generate Form Schema
+        }
+      </button>
     </section>
 
     <mat-divider></mat-divider>
 
     <section class="json-section" aria-labelledby="json-heading">
       <h2 id="json-heading">Generated JSON</h2>
+      @if (hasSchema()) {
+      <pre aria-label="Generated JSON output">{{ schema() | json }}</pre>
+      } @else {
       <pre aria-label="Generated JSON output">{{ '{}' }}</pre>
+      }
     </section>
   </mat-card>
 </main>

@@ -5,6 +5,6 @@ export const routes: Routes = [
         path: '',
         loadComponent: () =>
             import('./features/ai-assistant/pages/home/home')
-                .then(m => m.Home)
+                .then(m => m.AiAssistantHomeComponent)
     }
 ];
