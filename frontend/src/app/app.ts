@@ -8,5 +8,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('enterprise-ai-form-assistant');
+  protected readonly title = signal('visa-flow-ai');
 }

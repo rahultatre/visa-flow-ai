@@ -1,0 +1,103 @@
+:host {
+  display: block;
+  min-height: 100%;
+}
+
+.home-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 64px 24px;
+  background: #f6f8fb;
+  color: #172033;
+}
+
+.form-assistant {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgb(20 34 55 / 8%);
+}
+
+.page-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #526780;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+mat-divider {
+  margin: 30px 0;
+}
+
+.prompt-section,
+.json-section {
+  display: grid;
+  gap: 14px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+textarea[matInput] {
+  min-height: 128px;
+  resize: vertical;
+}
+
+button[mat-flat-button] {
+  justify-self: center;
+  min-width: 132px;
+}
+
+pre {
+  min-height: 96px;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 16px;
+  overflow: auto;
+  border: 1px solid #dfe5ec;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #34435a;
+  font: 0.9rem/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@media (max-width: 600px) {
+  .home-page {
+    padding: 24px 16px;
+  }
+
+  .form-assistant {
+    padding: 28px 20px;
+  }
+
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+}
