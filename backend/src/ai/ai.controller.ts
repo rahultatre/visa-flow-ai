@@ -1,10 +1,10 @@
 import { request, Request, Response } from 'express';
-import { AIService } from '../services/ai.service';
-import { AIRequest } from '../../shared/models/ai-request.model';
-import { AIResponse } from '../../shared/models/ai-response.model';
-import { AIProviderType } from '../../shared/enum/ai-provider-type.enum';
-import { AIProvider } from '../providers/ai-provider.interface';
-import { ProviderFactory } from '../providers/provider.factory';
+import { AIService } from './services/ai.service';
+import { AIRequest } from '../shared/interfaces/ai-request.interface';
+import { AIResponse } from '../shared/interfaces/ai-response.interface';
+import { AIProviderType } from '../shared/enum/ai-provider-type.enum';
+import { AIProvider } from './providers/ai-provider.interface';
+import { ProviderFactory } from './providers/provider.factory';
 
 const provider: AIProvider = ProviderFactory.create(AIProviderType.OPENAI); // You can change this to the desired provider type
 const aiService = new AIService(provider);
