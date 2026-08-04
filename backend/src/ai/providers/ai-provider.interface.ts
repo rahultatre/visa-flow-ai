@@ -1,6 +1,7 @@
-import { AIRequest } from "../../shared/models/ai-request.model";
-import { AIResponse } from "../../shared/models/ai-response.model";
+import { AIRequest } from "../../shared/interfaces/ai-request.interface";
+import { AIResponse } from "../../shared/interfaces/ai-response.interface";
+import { FormSchema } from "../../shared/interfaces/form-schema.interface";
 
 export interface AIProvider {
-  generateResponse(request: AIRequest): Promise<AIResponse>;
+  generateFormSchema(request: AIRequest): Promise<FormSchema>;
 }
