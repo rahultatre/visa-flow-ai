@@ -34,7 +34,7 @@ export interface FormField {
 }
 
 export interface FormFieldUi {
-  placeholder?: string;
+  placeholder?: string | null;
   hint?: string;
   tooltip?: string;
   readonly?: boolean;

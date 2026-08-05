@@ -62,3 +62,5 @@ export const FORM_SCHEMA_PROMPT = `
 export const AI_MODELS = {
   GPT_5_5: 'gpt-5.5',
 } as const;
+
+export const H1B_BENEFICIARY_MOCK = ''

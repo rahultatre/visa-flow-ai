@@ -40,6 +40,10 @@ export interface FormFieldUi {
     readonly?: boolean;
     disabled?: boolean;
     hidden?: boolean;
+    accept?: string;
+    multiple?: boolean;
+    maxFileSize?: number;
+    maxFiles?: number;
 }
 
 export interface FormFieldValidation {

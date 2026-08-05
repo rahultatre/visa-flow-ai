@@ -14,6 +14,16 @@
         <mat-label>Business requirement</mat-label>
         <textarea matInput formControlName="businessRequirement" placeholder="Describe the business requirement..." rows="5"></textarea>
       </mat-form-field>
+      <aside class="example-prompts" aria-label="Example business requirements">
+        <p><span aria-hidden="true">✨</span> Try one of these examples:</p>
+        <ul>
+          @for (prompt of examplePrompts; track prompt) {
+            <li>
+              <button type="button" (click)="useExamplePrompt(prompt)">{{ prompt }}</button>
+            </li>
+          }
+        </ul>
+      </aside>
       <button mat-raised-button color="primary" [disabled]="isLoading()" (click)="generate()">
         @if (isLoading()) {
         <mat-spinner diameter="20"></mat-spinner>
@@ -26,11 +36,13 @@
     <mat-divider></mat-divider>
 
     <section class="json-section" aria-labelledby="json-heading">
-      <h2 id="json-heading">Generated JSON</h2>
+      <h2 id="json-heading">AI Generated Result</h2>
       @if (hasSchema()) {
-      <pre aria-label="Generated JSON output">{{ schema() | json }}</pre>
+        <h3 class="schema-heading">{{schema()?.title}}</h3>
+        <p class="schema-description">{{schema()?.description}}</p>
+        <app-dynamic-form [schema]="schema()!" />
       } @else {
-      <pre aria-label="Generated JSON output">{{ '{}' }}</pre>
+        <pre aria-label="Generated Form output">{{ '--' }}</pre>
       }
     </section>
   </mat-card>
