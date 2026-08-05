@@ -1,20 +1,37 @@
-# VisaFlow AI
+# Architecture
 
-## Architecture
+```
+Angular
 
-Frontend
+↓
 
-- Angular
+AI Service
 
-Backend
+↓
 
-- Node
-- Express
+Express
 
-AI
+↓
 
-- OpenAI
+AI Provider
 
-Communication
+↓
 
-Angular → Node → OpenAI
+OpenAI
+
+↓
+
+Form Schema
+
+↓
+
+Angular Dynamic Form Engine
+```
+
+## Design Principles
+
+- Layered Architecture
+- Provider Pattern
+- Separation of Concerns
+- Shared Contracts
+- Metadata-driven UI

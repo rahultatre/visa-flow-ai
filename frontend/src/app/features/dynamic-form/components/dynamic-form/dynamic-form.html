@@ -1,0 +1,156 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    @for (section of schema().sections; track section.id) {
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    {{ section.title }}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="form-fields">
+                    @for (field of section.fields; track field.id) {
+                        <div class="form-field-col">
+                    @switch (field.type) {
+                        @case ('text') {
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    {{ field.label }}
+                                </mat-label>
+                                <input
+                                    matInput
+                                    [formControlName]="field.id"
+                                    [placeholder]="field.ui?.placeholder ?? ''">
+                            </mat-form-field>
+                        }
+                        @case ('email') {
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    {{ field.label }}
+                                </mat-label>
+                                <input
+                                    matInput
+                                    [formControlName]="field.id"
+                                    [placeholder]="field.ui?.placeholder ?? ''">
+                            </mat-form-field>
+                        }
+                        @case ('number') {
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    {{ field.label }}
+                                </mat-label>
+                                <input
+                                    matInput
+                                    [formControlName]="field.id"
+                                    [placeholder]="field.ui?.placeholder ?? ''">
+                            </mat-form-field>
+                        }
+                        @case ('checkbox') {
+                            <mat-checkbox [formControlName]="field.id">
+                                {{ field.label }}
+                            </mat-checkbox>
+                        }
+                        @case ('radio') {
+                            <mat-radio-group [formControlName]="field.id">
+                                @for (option of field?.options; track option.value) {
+                                    <mat-radio-button [value]="option.value">
+                                        {{ option.label }}
+                                    </mat-radio-button>
+                                }
+                            </mat-radio-group>
+                        }
+                        @case ('textarea') {
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    {{ field.label }}
+                                </mat-label>
+                                <textarea
+                                    matInput
+                                    [formControlName]="field.id"
+                                    [placeholder]="field.ui?.placeholder ?? ''">
+                                </textarea>
+                            </mat-form-field>
+                        }
+                        @case ('password') {
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    {{ field.label }}
+                                </mat-label>
+                                <input
+                                    matInput
+                                    type="password"
+                                    [formControlName]="field.id"
+                                    [placeholder]="field.ui?.placeholder ?? ''">
+                            </mat-form-field>
+                        }
+                        @case ('file') {
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    {{ field.label }}
+                                </mat-label>
+                                <input
+                                    matInput
+                                    type="file"
+                                    [formControlName]="field.id"
+                                    [placeholder]="field.ui?.placeholder ?? ''">
+                            </mat-form-field>
+                        }
+                        @case ('date') {
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    {{ field.label }}
+                                </mat-label>
+                                <input
+                                    matInput
+                                    [formControlName]="field.id"
+                                    [matDatepicker]="picker"
+                                    [placeholder]="field.ui?.placeholder ?? ''">
+                                <mat-datepicker-toggle matIconSuffix [for]="picker" />
+                                <mat-datepicker #picker />
+                            </mat-form-field>
+                        }
+                        @case ('select') {
+                            <mat-form-field appearance="outline">
+                                <mat-label>
+                                    {{ field.label }}
+                                </mat-label>
+                                <mat-select [formControlName]="field.id">
+                                    @for (option of field?.options; track option.value) {
+                                        <mat-option [value]="option.value">
+                                            {{ option.label }}
+                                        </mat-option>
+                                    }
+                                </mat-select>
+                            </mat-form-field>
+                        }
+
+                    }
+                        </div>
+                    }
+                </div>
+            </mat-card-content>
+        </mat-card>
+        <mat-divider></mat-divider>
+    }
+    <div class="form-actions">
+        <button matButton="tonal" type="button" (click)="resetForm()">
+            Reset
+        </button>
+       <button matButton="filled" type="submit" class="submit-button" [disabled]="form.invalid">
+        Submit
+        </button>
+    </div>
+</form>
+@if(isFormSubmitted()) {
+    <mat-divider></mat-divider>
+    <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    Data To Be Submitted
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <pre>{{ form.getRawValue() | json }}</pre>
+            </mat-card-content>
+    </mat-card>
+}
+

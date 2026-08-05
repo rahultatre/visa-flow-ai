@@ -1,5 +1,4 @@
 import { AIRequest } from "../../shared/interfaces/ai-request.interface";
-import { AIResponse } from "../../shared/interfaces/ai-response.interface";
 import { AIProvider } from "./ai-provider.interface"; 
 import Logger from "../../shared/common/logger";
 import { env } from "../../config/env";
@@ -7,7 +6,7 @@ import OpenAI from "openai";
 import { buildFormGenerationPrompt } from "../prompts/form-generator.prompt";
 import { FormSchema } from "../../shared/interfaces/form-schema.interface";
 import { AI_MODELS } from "../../shared/constants/ai.constants";
-import { BENEFICIARY_FORM_MOCK } from '../mocks/beneficiary-form.mock';
+import { MockSchemaResolver } from "../resolver/mock-schema.resolver";
 
 export class OpenAIProvider implements AIProvider {
   private readonly client = new OpenAI({
@@ -23,7 +22,7 @@ export class OpenAIProvider implements AIProvider {
         try {
             if (env.useMockAI) {
               Logger.info('Returning mock schema');
-              return BENEFICIARY_FORM_MOCK;
+              return MockSchemaResolver.resolve(request.prompt);
             }
 
             Logger.info("Generating form schema");

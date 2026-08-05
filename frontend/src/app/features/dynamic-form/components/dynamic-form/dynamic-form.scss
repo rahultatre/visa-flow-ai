@@ -1,0 +1,48 @@
+.mat-mdc-card{
+    // margin-bottom: 20px;
+    .mat-mdc-card-title{
+        padding-bottom: 10px;
+    }
+}
+
+
+.form-fields {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.form-field-col {
+    min-width: 0;
+}
+
+.form-field-col mat-form-field {
+    width: 100%;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: flex-end;
+    .submit-button{
+        margin-left: 10px;
+    }
+}
+
+.mat-divider-horizontal{
+    margin: 20px 0;
+}
+
+@media (max-width: 959px) {
+    .form-fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 599px) {
+    .form-fields {
+        grid-template-columns: 1fr;
+    }
+}

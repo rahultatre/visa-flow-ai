@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormSchema } from '../../../../core/models/form-schema.model';
 import { AiService } from '../../../../core/services/ai.service';
+import { DynamicFormComponent } from '../../../dynamic-form/components/dynamic-form/dynamic-form';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +20,7 @@ import { AiService } from '../../../../core/services/ai.service';
     MatInputModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    JsonPipe,
+    DynamicFormComponent,
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
@@ -36,6 +36,12 @@ export class AiAssistantHomeComponent {
   readonly schema = signal<FormSchema | null>(null);
   readonly isLoading = signal(false);
   readonly hasSchema = computed(() => this.schema() !== null);
+  readonly examplePrompts = [
+    'Generate an H1B Beneficiary Information form',
+    'Generate an H1B Petitioner Information form',
+    'Generate a Passport and Travel History form',
+    'Generate an Employee Onboarding form',
+  ];
 
   readonly canGenerate = computed(() =>
     this.promptForm.valid && !this.isLoading()
@@ -52,6 +58,10 @@ export class AiAssistantHomeComponent {
       this.schema.set(response.data);
     });
 
+  }
+
+  useExamplePrompt(prompt: string) {
+    this.promptForm.controls.businessRequirement.setValue(prompt);
   }
   
 }

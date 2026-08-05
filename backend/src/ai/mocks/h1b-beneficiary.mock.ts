@@ -1,6 +1,6 @@
 import { FormSchema } from '../../shared/interfaces/form-schema.interface';
 
-export const BENEFICIARY_FORM_MOCK: FormSchema = {
+export const H1B_BENEFICIARY_MOCK: FormSchema = {
   title: 'H1B Beneficiary Information',
   description: 'Basic beneficiary information required for H1B visa processing.',
   sections: [

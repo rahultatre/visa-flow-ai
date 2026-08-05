@@ -1,10 +1,31 @@
-# ADR-001
+# Architecture Decisions
 
-Decision:
-Keep FormField simple for V1.
+## AI Provider Pattern
 
-Reason:
-Permissions, API data sources, and AI metadata are not required to demonstrate dynamic form generation.
+Reason
 
-Future:
-These will be introduced when a concrete use case exists.
+Allows multiple AI providers without changing business logic.
+
+---
+
+## Shared FormSchema
+
+Reason
+
+Single contract shared between frontend and backend.
+
+---
+
+## Mock AI Provider
+
+Reason
+
+Allows development without OpenAI billing.
+
+---
+
+## Angular Signals
+
+Reason
+
+Simplifies state management and integrates naturally with standalone components.
