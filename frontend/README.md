@@ -1,83 +1,59 @@
-# VisaFlow AI
+# Frontend
 
-VisaFlow AI is an AI-powered dynamic form generation platform built with Angular 20 and Express.js.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.2.
 
-Instead of manually developing forms, users describe a business requirement in natural language. The backend AI service generates a JSON-based form schema, and the Angular application renders a fully dynamic form using Reactive Forms.
+## Development server
 
----
+To start a local development server, run:
 
-## Features
-
-- 🤖 AI-powered form schema generation
-- 📝 Metadata-driven dynamic form rendering
-- ⚡ Angular 20 with Signals
-- 📋 Reactive Forms with dynamic validation
-- 🎨 Angular Material UI
-- 🔌 Express.js REST API
-- 🏗️ Provider-based AI architecture
-- 🧪 Mock AI provider for local development
-- 📄 Shared schema contract between frontend and backend
-
----
-
-## Tech Stack
-
-### Frontend
-
-- Angular 20
-- TypeScript
-- Angular Material
-- Angular Signals
-- Reactive Forms
-
-### Backend
-
-- Node.js
-- Express.js
-- TypeScript
-- OpenAI SDK
-- Pino Logger
-
----
-
-## Project Structure
-
-```
-visa-flow-ai/
-├── frontend/
-├── backend/
-└── docs/
+```bash
+ng serve
 ```
 
----
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Documentation
+## Code scaffolding
 
-- Getting Started
-- Architecture
-- API Reference
-- Project Structure
-- Architecture Decisions
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-## Current Status
+```bash
+ng generate component component-name
+```
 
-The project currently uses a mock AI provider for schema generation to allow development without an OpenAI billing account.
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-Four sample schemas are available:
+```bash
+ng generate --help
+```
 
-- H1B Beneficiary Information
-- H1B Petitioner Information
-- Passport & Travel History
-- Employee Onboarding
+## Building
 
-Once an OpenAI API key with billing is configured, the mock provider can be replaced with the real OpenAI provider without changing the frontend.
+To build the project run:
 
+```bash
+ng build
+```
 
-## Demo Prompts
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-Try these prompts:
+## Running unit tests
 
-- Generate an H1B Beneficiary Information form
-- Generate an H1B Petitioner Information form
-- Generate a Passport and Travel History form
-- Generate an Employee Onboarding form
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
